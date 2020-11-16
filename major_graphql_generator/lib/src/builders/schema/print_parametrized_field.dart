@@ -31,14 +31,13 @@ String _parameterizedField(String parentClassName, FieldDefinition field) {
     final name = dartName(arg.name);
     return [
       // if will throw for required non-nulls
-      if (!arg.type.isNonNull)
-        'if ($name != null)',
+      if (!arg.type.isNonNull) 'if ($name != null)',
       "'$name': $name",
     ];
   });
 
   final built = builtClass(
-    className(field.name) + 'Results',
+    parentClassName + className(field.name) + 'Results',
     body: '''
       // static Serializer<FieldResults> get serializer => _\$fieldResultsSerializer;
 
