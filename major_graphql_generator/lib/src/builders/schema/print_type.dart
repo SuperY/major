@@ -135,7 +135,7 @@ String printObjTypeSetter(d.GraphQLType type,
       '$value == null ? null :',
       'ListBuilder<$innerType>(',
       value,
-      if (innerSetter != 'i') '.map<${innerType}>((i) => ${innerSetter})',
+      if (innerSetter == 'i') '.map<${innerType}>((i) => ${innerSetter})',
       ')',
     ].join('');
   }
