@@ -36,6 +36,10 @@ dynamic getJson(LazyCacheMap cacheMap) {
 }
 
 void pprint(dynamic json) {
-  final dynamic _json = (json is LazyCacheMap) ? getJson(json) : json;
-  debugPrint(encoder.convert(_json));
+  try {
+    final dynamic _json = (json is LazyCacheMap) ? getJson(json) : json;
+    debugPrint(encoder.convert(_json));
+  } catch (error) {
+    print(error);
+  }
 }
